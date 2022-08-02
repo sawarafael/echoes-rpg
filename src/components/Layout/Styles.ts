@@ -47,11 +47,10 @@ export const Button = styled(MuiButton, {
 });
 
 export const MainContent = styled(MuiBox, {
-  display: "flex",
+  width: "100%",
   position: "absolute",
-  top: "0px",
-  left: "0px",
-  right: "0px",
-  bottom: "0px",
-  backgroundColor: "#303240",
+  top: "0",
+  left: "0",
+  right: "0",
+  bottom: "0",
 });

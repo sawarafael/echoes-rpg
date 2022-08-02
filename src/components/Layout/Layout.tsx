@@ -1,5 +1,12 @@
 import * as React from "react";
-import { AppBar as MuiAppBar, Box, Fab, Fade, Toolbar } from "@mui/material";
+import {
+  AppBar as MuiAppBar,
+  Box,
+  Fab,
+  Fade,
+  Toolbar,
+  Container,
+} from "@mui/material";
 import { Button, Title, MainContent } from "./Styles";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
@@ -64,10 +71,8 @@ export const Layout: React.FC<Props> = ({ children }) => {
     navigate(`/${to}`);
   };
 
-  console.log("pathname", location.pathname);
-
   return (
-    <>
+    <React.Fragment>
       <ElevationScroll>
         <MuiAppBar
           position="fixed"
@@ -81,7 +86,20 @@ export const Layout: React.FC<Props> = ({ children }) => {
           }}
         >
           <Toolbar>
-            <Title variant="h6" onClick={() => handleNavigate("")}>
+            <Title
+              variant="h6"
+              onClick={() => handleNavigate("")}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src="https://media.discordapp.net/attachments/789119825468194826/1003812072720711800/logo.png"
+                alt="logo"
+                style={{ width: "2.8rem", height: "2.5rem" }}
+              />
               Echoes Fantasy
             </Title>
             <Box flexGrow={{ flexGrow: 1 }} />
@@ -122,13 +140,13 @@ export const Layout: React.FC<Props> = ({ children }) => {
         </MuiAppBar>
       </ElevationScroll>
       <Toolbar id="top" />
-      <MainContent children={children} />
+      <MainContent>{children}</MainContent>
       <ScrollTop>
         <Fab size="small">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-    </>
+    </React.Fragment>
   );
 };
 
